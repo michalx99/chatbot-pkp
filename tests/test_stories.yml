@@ -1,0 +1,98 @@
+version: "3.1"
+stories:
+
+- story: Powitanie i rozkład jazdy
+  steps:
+  - user: |
+      hej
+    intent: greet
+  - action: utter_greet
+  - user: |
+      z [Warszawy](departure_city) do [Poznania](arrival_city)
+    intent: ask_schedule
+  - action: action_provide_schedule
+
+- story: Najbliższy pociąg
+  steps:
+  - user: |
+      cześć
+    intent: greet
+  - action: utter_greet
+  - user: |
+      kiedy odjeżdża najbliższy pociąg z [Łodzi](departure_city) do [Krakowa](arrival_city)
+    intent: ask_schedule_next
+  - action: action_provide_next_train
+
+- story: Wszystkie pociągi i podziękowanie
+  steps:
+  - user: |
+      pokaż wszystkie pociągi z [Gdańska](departure_city) do [Szczecina](arrival_city)
+    intent: ask_schedule_all
+  - action: action_provide_all_trains
+  - user: |
+      dzięki
+    intent: thanks
+  - action: utter_thanks
+
+- story: Połączenie bezpośrednie
+  steps:
+  - user: |
+      czy jest połączenie bezpośrednie z [Katowic](from_city) do [Wrocławia](to_city)
+    intent: ask_schedule_connection
+  - action: action_provide_connection
+
+- story: Opóźnienia według miasta
+  steps:
+  - user: |
+      jakie są opóźnienia z [Poznania](delay_city)
+    intent: ask_delay_city
+  - action: action_provide_delay_city
+
+- story: Opóźnienia według numeru pociągu
+  steps:
+  - user: |
+      jakie opóźnienie ma [IC 1234](train_number)
+    intent: ask_delay_train
+  - action: action_provide_delay_train
+
+- story: Cena biletu
+  steps:
+  - user: |
+      ile kosztuje bilet z [Warszawy](departure_city) do [Krakowa](arrival_city)
+    intent: ask_ticket_price
+  - action: action_provide_ticket_price
+
+- story: Peron
+  steps:
+  - user: |
+      z którego peronu odjeżdża [EIP 567](train_number)
+    intent: ask_platform
+  - action: action_provide_platform
+
+- story: Typ pociągu
+  steps:
+  - user: |
+      jaki typ pociągu kursuje z [Łodzi](departure_city) do [Poznania](arrival_city)
+    intent: ask_train_type
+  - action: action_provide_train_type
+
+- story: Usługi w pociągu
+  steps:
+  - user: |
+      jakie usługi są w [TLK 888](train_number)
+    intent: ask_services
+  - action: action_provide_services
+
+- story: Reklamacja
+  steps:
+  - user: |
+      chcę zareklamować bilet
+    intent: ask_complaint
+  - action: action_provide_complaint
+
+- story: Zakończenie rozmowy
+  steps:
+  - user: |
+      do zobaczenia
+    intent: goodbye
+  - action: utter_goodbye

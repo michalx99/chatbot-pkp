@@ -1,0 +1,97 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - ask_schedule
+  - ask_schedule_next
+  - ask_schedule_all
+  - ask_schedule_connection
+  - ask_delay
+  - ask_complaint
+  - ask_train_type
+  - ask_ticket_price
+  - ask_platform
+  - ask_services
+  - thanks
+  - fallback
+  - affirm
+  - deny
+  - inform
+
+entities:
+  - departure_city
+  - arrival_city
+  - delay_city
+  - train_number
+
+slots:
+  departure_city:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: departure_city
+      - type: from_text
+
+  arrival_city:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: arrival_city
+      - type: from_text
+
+  delay_city:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: delay_city
+      - type: from_text
+
+  train_number:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: train_number
+      - type: from_text
+
+responses:
+  utter_greet:
+    - text: "Cześć! W czym mogę pomóc? Możesz zapytać np. 'kiedy jedzie najbliższy pociąg z Łodzi do Krakowa' albo 'opóźnienia z Krakowa'."
+
+  utter_goodbye:
+    - text: "Do zobaczenia! Jeśli będziesz potrzebować rozkładu lub opóźnień — pisz :)"
+
+  utter_thanks:
+    - text: "Nie ma za co — chętnie pomogę!"
+
+  utter_complaint:
+    - text: "Reklamację możesz złożyć na stronie bot_pkp.pl, wysyłając e-mail na adres bot_pkp@mail lub w punktach obsługi klienta."
+
+  utter_ask_departure_arrival:
+    - text: "Podaj proszę miasto początkowe i docelowe (np. 'z Łodzi do Krakowa')."
+
+  utter_ask_delay_info:
+    - text: "Podaj proszę miasto lub numer pociągu, aby sprawdzić opóźnienia (np. 'opóźnienia z Krakowa' lub 'IC 1234')."
+
+  utter_ask_train_number:
+    - text: "Podaj proszę numer pociągu (np. 'IC 1234')."
+
+  utter_default:
+    - text: "Przykro mi, nie rozumiem. Możesz prosto: 'kiedy najbliższy pociąg z X do Y', 'opóźnienia z X', 'ile kosztuje bilet z X do Y'."
+
+actions:
+  - action_show_schedule
+  - action_show_delay
+  - action_show_ticket_price
+  - action_show_platform
+  - action_show_train_type
+  - action_show_services
+  - action_check_schedule
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

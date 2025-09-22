@@ -1,0 +1,148 @@
+version: "3.1"
+
+nlu:
+- intent: greet
+  examples: |
+    - hej
+    - cześć
+    - witam
+    - dzień dobry
+    - dobry wieczór
+    - siema
+    - elo
+
+- intent: goodbye
+  examples: |
+    - pa
+    - do zobaczenia
+    - na razie
+    - trzymaj się
+    - dobranoc
+    - żegnam
+
+- intent: thanks
+  examples: |
+    - dzięki
+    - dziękuję
+    - wielkie dzięki
+    - bardzo dziękuję
+    - thx
+    - dzięki wielkie
+
+- intent: ask_schedule
+  examples: |
+    - z [Łodzi](departure_city) do [Krakowa](arrival_city)
+    - pociągi z [Warszawy](departure_city) do [Poznania](arrival_city)
+    - chciałbym połączenie z [Gdańska](departure_city) do [Szczecina](arrival_city)
+    - znajdź mi pociąg z [Katowic](departure_city) do [Wrocławia](arrival_city)
+
+- intent: ask_schedule_next
+  examples: |
+    - kiedy odjeżdża najbliższy pociąg z [Krakowa](departure_city) do [Łodzi](arrival_city)
+    - podaj mi najbliższy pociąg z [Warszawy](departure_city) do [Poznania](arrival_city)
+    - o której jest następny pociąg z [Gdańska](departure_city) do [Krakowa](arrival_city)
+
+- intent: ask_schedule_all
+  examples: |
+    - pokaż wszystkie pociągi z [Łodzi](departure_city) do [Krakowa](arrival_city)
+    - jakie są wszystkie połączenia z [Warszawy](departure_city) do [Poznania](arrival_city)
+    - lista wszystkich pociągów z [Gdańska](departure_city) do [Katowic](arrival_city)
+
+- intent: ask_schedule_connection
+  examples: |
+    - czy jest połączenie bezpośrednie z [Łodzi](departure_city) do [Krakowa](arrival_city)
+    - kiedy jedzie pociąg z [Łodzi](departure_city) do [Warszawy](arrival_city)?
+    - czy istnieje połączenie z [Katowic](departure_city) do [Szczecina](arrival_city)
+
+- intent: ask_delay
+  examples: |
+    - opóźnienia z [Krakowa](delay_city)
+    - opóźnienia z [Łodzi](delay_city)
+    - jakie są opóźnienia z [Warszawy](delay_city)
+    - sprawdź opóźnienia z [Poznania](delay_city)
+    - opóźnienia pociągu [IC 1234](train_number)
+    - czy [TLK 4567](train_number) jest opóźniony?
+    - jakie opóźnienie ma [EIP 789](train_number)
+    - status pociągu [IC 4321](train_number)
+
+- intent: ask_ticket_price
+  examples: |
+    - ile kosztuje bilet z [Warszawy](departure_city) do [Poznania](arrival_city)
+    - cena biletu z [Łodzi](departure_city) do [Krakowa](arrival_city)
+    - bilet z [Katowic](departure_city) do [Wrocławia](arrival_city) ile kosztuje
+    - koszt przejazdu z [Szczecina](departure_city) do [Gdańska](arrival_city)
+
+- intent: ask_platform
+  examples: |
+    - z którego peronu odjeżdża [IC 1234](train_number)
+    - na jaki peron przyjeżdża [EIP 567](train_number)
+    - gdzie zatrzymuje się [TLK 888](train_number)
+
+- intent: ask_train_type
+  examples: |
+    - jaki typ pociągu kursuje z [Warszawy](departure_city) do [Krakowa](arrival_city)
+    - czym pojadę z [Łodzi](departure_city) do [Poznania](arrival_city)
+    - jakie typy pociągów są na trasie z [Katowic](departure_city) do [Wrocławia](arrival_city)
+
+- intent: ask_services
+  examples: |
+    - jakie usługi są w [EIP 123](train_number)
+    - co oferuje [IC 789](train_number)
+    - jakie udogodnienia są w pociągu [TLK 456](train_number)
+
+- intent: ask_complaint
+  examples: |
+    - reklamacja
+    - chcę zareklamować bilet
+    - zgłaszam skargę
+    - chcę złożyć reklamację
+
+- lookup: departure_city
+  examples: |
+    - Warszawa
+    - Kraków
+    - Łódź
+    - Poznań
+    - Gdańsk
+    - Katowice
+    - Wrocław
+    - Szczecin
+
+- lookup: arrival_city
+  examples: |
+    - Warszawa
+    - Kraków
+    - Łódź
+    - Poznań
+    - Gdańsk
+    - Katowice
+    - Wrocław
+    - Szczecin
+
+- lookup: train_number
+  examples: |
+    - IC 1234
+    - TLK 4567
+    - EIP 789
+    - IC 4321
+    - TLK 888
+    - EIP 567
+
+- synonym: Kraków
+  examples: |
+    - Krakowa
+    - Krakowie
+
+- synonym: Warszawa
+  examples: |
+    - Warszawy
+    - Warszawie
+
+- synonym: Łódź
+  examples: |
+    - Łodzi
+
+- synonym: Poznań
+  examples: |
+    - Poznania
+    - Poznaniu

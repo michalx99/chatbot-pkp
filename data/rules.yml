@@ -1,0 +1,48 @@
+version: "3.1"
+
+rules:
+
+- rule: Powitanie
+  steps:
+    - intent: greet
+    - action: utter_greet
+
+- rule: Pożegnanie
+  steps:
+    - intent: goodbye
+    - action: utter_goodbye
+
+- rule: Podziękowanie
+  steps:
+    - intent: thanks
+    - action: utter_thanks
+
+- rule: Reklamacja
+  steps:
+    - intent: ask_complaint
+    - action: utter_complaint
+
+- rule: Opóźnienia
+  steps:
+    - intent: ask_delay
+    - action: action_show_delay
+
+- rule: Cena biletu
+  steps:
+    - intent: ask_ticket_price
+    - action: action_show_ticket_price
+
+- rule: Peron
+  steps:
+    - intent: ask_platform
+    - action: action_show_platform
+
+- rule: Usługi
+  steps:
+    - intent: ask_services
+    - action: action_show_services
+
+- rule: Typ pociągu
+  steps:
+    - intent: ask_train_type
+    - action: action_show_train_type

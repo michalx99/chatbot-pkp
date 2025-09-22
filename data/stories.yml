@@ -1,0 +1,79 @@
+version: "3.1"
+
+stories:
+
+- story: Zapytanie o rozkład z pełnymi miastami
+  steps:
+    - intent: ask_schedule
+      entities:
+        - departure_city: "Warszawa"
+        - arrival_city: "Kraków"
+    - slot_was_set:
+        - departure_city: "Warszawa"
+        - arrival_city: "Kraków"
+    - action: action_show_schedule
+
+- story: Zapytanie o rozkład z brakującym miastem
+  steps:
+    - intent: ask_schedule
+    - action: utter_ask_departure_arrival
+    - intent: inform
+      entities:
+        - departure_city: "Łódź"
+        - arrival_city: "Poznań"
+    - slot_was_set:
+        - departure_city: "Łódź"
+        - arrival_city: "Poznań"
+    - action: action_show_schedule
+
+- story: Zapytanie o opóźnienia
+  steps:
+    - intent: ask_delay
+    - action: action_show_delay
+
+- story: Pytanie o peron
+  steps:
+    - intent: ask_platform
+      entities:
+        - train_number: "IC 1234"
+    - slot_was_set:
+        - train_number: "IC 1234"
+    - action: action_show_platform
+
+- story: Pytanie o cenę biletu
+  steps:
+    - intent: ask_ticket_price
+      entities:
+        - departure_city: "Warszawa"
+        - arrival_city: "Gdańsk"
+    - slot_was_set:
+        - departure_city: "Warszawa"
+        - arrival_city: "Gdańsk"
+    - action: action_show_ticket_price
+
+- story: Pytanie o usługi
+  steps:
+    - intent: ask_services
+      entities:
+        - train_number: "TLK 4567"
+    - slot_was_set:
+        - train_number: "TLK 4567"
+    - action: action_show_services
+
+- story: Powitanie i pytanie o rozkład
+  steps:
+    - intent: greet
+    - action: utter_greet
+    - intent: ask_schedule
+      entities:
+        - departure_city: "Poznań"
+        - arrival_city: "Szczecin"
+    - slot_was_set:
+        - departure_city: "Poznań"
+        - arrival_city: "Szczecin"
+    - action: action_show_schedule
+
+- story: Zapytanie check schedule
+  steps:
+    - intent: ask_schedule_connection
+    - action: action_check_schedule

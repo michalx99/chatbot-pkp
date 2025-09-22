@@ -1,0 +1,77 @@
+version: "3.1"
+nlu:
+- test: greetings
+  examples: |
+    - hej
+    - cześć
+    - witam
+  intent: greet
+
+- test: goodbye
+  examples: |
+    - pa
+    - do zobaczenia
+  intent: goodbye
+
+- test: thanks
+  examples: |
+    - dzięki
+    - dziękuję
+  intent: thanks
+
+- test: schedule_basic
+  examples: |
+    - z [Łodzi](departure_city) do [Krakowa](arrival_city)
+    - pociągi z [Warszawy](departure_city) do [Poznania](arrival_city)
+  intent: ask_schedule
+
+- test: schedule_next
+  examples: |
+    - kiedy odjeżdża najbliższy pociąg z [Krakowa](departure_city) do [Łodzi](arrival_city)
+  intent: ask_schedule_next
+
+- test: schedule_all
+  examples: |
+    - pokaż wszystkie pociągi z [Łodzi](departure_city) do [Krakowa](arrival_city)
+  intent: ask_schedule_all
+
+- test: schedule_connection
+  examples: |
+    - czy jest połączenie bezpośrednie z [Łodzi](departure_city) do [Krakowa](arrival_city)
+    - kiedy jedzie pociąg z [Łodzi](departure_city) do [Warszawy](arrival_city)?
+  intent: ask_schedule_connection
+
+- test: delays
+  examples: |
+    - opóźnienia z [Krakowa](delay_city)
+    - opóźnienia z [Łodzi](delay_city)
+    - opóźnienia pociągu [IC 1234](train_number)
+    - czy [TLK 4567](train_number) jest opóźniony?
+  intent: ask_delay
+
+- test: ticket_price
+  examples: |
+    - ile kosztuje bilet z [Warszawy](departure_city) do [Poznania](arrival_city)
+    - cena biletu z [Łodzi](departure_city) do [Krakowa](arrival_city)
+  intent: ask_ticket_price
+
+- test: platform
+  examples: |
+    - z którego peronu odjeżdża [IC 1234](train_number)
+  intent: ask_platform
+
+- test: train_type
+  examples: |
+    - jaki typ pociągu kursuje z [Warszawy](departure_city) do [Krakowa](arrival_city)
+  intent: ask_train_type
+
+- test: services
+  examples: |
+    - jakie usługi są w [EIP 123](train_number)
+  intent: ask_services
+
+- test: complaint
+  examples: |
+    - reklamacja
+    - chcę zareklamować bilet
+  intent: ask_complaint
